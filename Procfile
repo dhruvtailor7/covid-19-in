@@ -1,1 +1,1 @@
-worker: python covidindiascrapper.py
+web: python covidindiascrapper.py
