@@ -14,6 +14,7 @@ from datetime import date
 import csv
 from datetime import datetime
 import json
+import io
 URL_SMS = 'https://www.sms4india.com/api/v1/sendCampaign'
 API_KEY = 'PMEBXICEIKK0KJ8TLZDTHQVD8Z2POC3M'
 SECRET = '6S687CBOMMZ4L2UE'
@@ -32,7 +33,7 @@ def sendPostRequest(reqUrl, apiKey, secretKey, useType, phoneNo, senderId, textM
 
 def import_csv(csvfilename):
     data = []
-    with open(csvfilename, "r", errors="ignore") as scraped:
+    with io.open(csvfilename, "r", errors="ignore") as scraped:
         reader = csv.reader(scraped, delimiter=',')
         next(reader);
         for row in reader:
@@ -70,7 +71,7 @@ while True:
     print(response.text)
 
     if rise_flag:
-        with open('covid-19-IN.csv', 'a', newline='') as file:
+        with io.open('covid-19-IN.csv', 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(ans)
     print(ans)
