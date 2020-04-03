@@ -32,7 +32,7 @@ def sendPostRequest(reqUrl, apiKey, secretKey, useType, phoneNo, senderId, textM
 
 def import_csv(csvfilename):
     data = []
-    with open(csvfilename, "r", encoding="utf-8", errors="ignore") as scraped:
+    with open(csvfilename, "r", errors="ignore") as scraped:
         reader = csv.reader(scraped, delimiter=',')
         next(reader);
         for row in reader:
